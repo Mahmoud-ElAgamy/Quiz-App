@@ -1,0 +1,33 @@
+/* --- Margins --- */
+.m-t-b {
+    margin: clamp(50px, 5.5vw, 100px) 0;
+}
+
+.m-b5 {
+    margin-bottom: 5px;
+}
+
+.m-b10 {
+    margin-bottom: 10px;
+}
+
+.m-t5 {
+    margin-top: 5px;
+}
+
+.m-t10 {
+    margin-top: 10px;
+}
+
+
+
+
+
+.btn-shape {
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}

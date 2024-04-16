@@ -1,0 +1,330 @@
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@500&display=swap");
+
+/* Resets */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+
+/* General Styles */
+body {
+  font-family: "Cairo", sans-serif;
+  background-color: #ecf5ff;
+  min-height: 100vh;
+  direction: rtl;
+  color: #333;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Components */
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  max-width: 50rem;
+  padding: 1rem;
+}
+
+.btn {
+  font-size: 1.8rem;
+  padding: 0.6rem 0;
+  width: 18rem;
+  text-align: center;
+  border: 0.1rem solid #56a5eb;
+  margin-bottom: 1rem;
+  text-decoration: none;
+  color: #56a5eb;
+  background-color: white;
+}
+
+.btn:hover {
+  cursor: pointer;
+  box-shadow: 0 0.4rem 1.4rem 0 rgba(86, 185, 235, 0.5);
+  transform: translateY(-0.1rem);
+  transition: transform 150ms;
+}
+
+.btn[disabled]:hover {
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+/* Home Page */
+.container .home {
+  display: flex;
+  flex-direction: column;
+}
+
+.container .home h1 {
+  color: #56a5eb;
+  text-align: center;
+}
+
+/* Quiz Page */
+.container .quiz {
+  flex-grow: 1;
+}
+
+.container .quiz .info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.5rem;
+  color: #56a5eb;
+  font-weight: bold;
+}
+
+.container .quiz .category {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.container .quiz h2 {
+  margin-bottom: 0.5rem;
+  font-style: normal;
+}
+
+.container .quiz .category h2 {
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+
+.container .choice-container {
+  width: 100%;
+  display: flex;
+  font-size: 1.3rem;
+  border: 0.1rem solid rgba(86, 185, 235, 0.5);
+  background-color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.container .choice-container .choice-prefix {
+  padding: 1rem 1.5rem;
+  background-color: #349bf7;
+  color: #fff;
+  width: 3rem;
+  display: grid;
+  place-content: center;
+}
+
+.container .choice-container .choice-txt {
+  padding: 1rem;
+  width: 100%;
+}
+
+.container .choice-container:hover {
+  cursor: pointer;
+  box-shadow: 0 0.4rem 1.4rem 0 rgba(86, 185, 235, 0.5);
+  transform: translateY(-0.1rem);
+  transition: transform 150ms;
+}
+
+.correct {
+  background-color: #28a745;
+  animation: changing-color 0.5s ease-in-out infinite alternate;
+}
+
+.incorrect {
+  background-color: #dc3545;
+  animation: changing-color2 1s ease-in-out infinite alternate;
+}
+
+.bullets {
+  text-align: left;
+}
+
+.bullets span {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1px solid #56a5eb;
+  background-color: #fff;
+  margin-left: 5px;
+}
+
+.bullets span.previous {
+  background-color: #56a5eb;
+}
+
+.bullets span.current {
+  animation: glow 0.5s ease-in-out infinite alternate;
+}
+
+/* Result Page */
+.result .final-score {
+  margin-bottom: 1.5rem;
+  font-size: 2.6rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input {
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  width: 18rem;
+  font-size: 1.5rem;
+  border: none;
+  box-shadow: 0 0.4rem 1.4rem 0 rgba(86, 185, 235, 0.5);
+}
+
+input::placeholder {
+  color: #aaa;
+}
+
+.result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.msg {
+  background-color: #56a5eb;
+  padding: 0.3rem 0.4rem;
+  color: #fff;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  position: absolute;
+  right: -200px;
+  top: 10px;
+  transition: 0.3s;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.msg i {
+  color: limegreen;
+}
+
+.msg.show {
+  right: 10px;
+}
+
+.bad {
+  color: #dc0a0a;
+}
+
+.fair {
+  color: #ec8f5e;
+}
+
+.good {
+  color: #009688;
+}
+
+.perfect {
+  color: #0075ff;
+}
+
+/* High Score Page */
+.highscores-page {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.highscores-page h1 {
+  margin-bottom: 2rem;
+}
+
+.highscores-page table {
+  width: 100%;
+  border-spacing: 0;
+  font-size: 1.2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  min-width: 750px;
+}
+
+.highscores-page table thead {
+  color: #333;
+}
+
+.highscores-page table th {
+  border-top: 1px solid #ccc;
+}
+
+.highscores-page table td {
+  color: #0075ff;
+}
+
+.highscores-page table :where(th, td) {
+  padding: 0.5rem 2rem;
+  border-bottom: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+}
+
+.highscores-page table :where(th:first-of-type, td:first-of-type) {
+  border-right: 1px solid #ccc;
+}
+
+.hidden {
+  display: none;
+}
+
+.loader {
+  border: 0.7rem solid #fff;
+  height: 7rem;
+  width: 7rem;
+  border-radius: 50%;
+  border-top-color: #0075ff;
+  animation: spin 0.6s linear infinite;
+}
+
+/* BUTTONS */
+
+/* Animations */
+@keyframes changing-color {
+  from {
+    background-color: #28a745;
+  }
+
+  to {
+    background-color: limegreen;
+  }
+}
+
+@keyframes changing-color2 {
+  from {
+    background-color: #dc3545;
+  }
+
+  to {
+    background-color: #dc0a0a;
+  }
+}
+
+@keyframes glow {
+  from {
+    background-color: #fff;
+  }
+
+  to {
+    background-color: #56a5eb;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
